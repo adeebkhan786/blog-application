@@ -4,7 +4,11 @@ import { Box, styled, Typography } from "@mui/material";
 import { Edit, Delete } from '@mui/icons-material';
 import { useParams, Link, useNavigate } from "react-router-dom";  //ye ek custom hook hai iske andar se hme id nikalni hai
 import API from "../../service/api";
-import { DataContext } from "../../context/DataProvider"
+import { DataContext } from "../../context/DataProvider";
+
+
+//Components
+import Comments from "./comments/Comments"
 
 
 //Responsive bnaane ke liye hum "theme" ka use krte hain...
@@ -103,6 +107,8 @@ const DetailView = () => {
       </Author>
 
       <Description>{post.description}</Description>
+
+      <Comments post={post} />
     </Container>
   )
 }

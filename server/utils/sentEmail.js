@@ -26,8 +26,8 @@ export const sendEmail = async (username, password, subject, data) => {
     from: process.env.MAIL_USERNAME,
     to: username,
     subject: subject,
-    text: `<p>Hi ${data.name},</p>
-    <p>Your New Password is - <strong>${password}</strong>.</p>
+    html: `<p>Hi ${data.name},</p>
+    <p>Your New Password is - <strong>${password}</strong>.</p><br><br>
     <p>Thanks and Regards<br>Adeeb Khan</p>`
   };
 

@@ -66,9 +66,9 @@ export const forgottenPassword = async (request, response) => {
     let password = username.split("@")[0];
     password = password + '' + randomNumber
     console.log(password);
-    const sentmailForForgottenPassword = await sendEmail(username, password, 'Password of blog application', veriyUser);
-    console.log(sentmailForForgottenPassword)
-    response.status(200).json({ msg: 'Email has been sent for new password', password })
+    const sentmailForForgottenPassword = await sendEmail(username, password, 'Password of Blog Application', veriyUser);
+    console.log(sentmailForForgottenPassword);
+    return response.status(200).json({ msg: 'Email has been sent for new password', password })
   } catch (error) {
     return response.status(500).json(error.message);
   }

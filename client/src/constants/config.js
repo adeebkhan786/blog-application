@@ -49,6 +49,8 @@ export const SERVICE_URLS = {
   getPostById: { url: 'http://localhost:8000/post', method: 'GET', query: true },
   updatePost: { url: 'http://localhost:8000/update', method: 'PUT', query: true },
   deletePost: { url: 'http://localhost:8000/delete', method: 'DELETE', query: true },
+  newComment: { url: 'http://localhost:8000/comment/new', method: 'POST' },
+  getAllComments: { url: 'http://localhost:8000/comments', method: 'GET', query: true }
 }
 
 
