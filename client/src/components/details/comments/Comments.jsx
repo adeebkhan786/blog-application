@@ -37,9 +37,11 @@ const initialValues = {
 const Comments = ({ post }) => {
 
   const url = 'https://static.thenounproject.com/png/12017-200.png';
+
   const [comment, setComment] = useState(initialValues);
   const { account } = useContext(DataContext);
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([]);
+  const [toggle, setToggle] = useState(false);
 
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const Comments = ({ post }) => {
     };
 
     getData()
-  }, [post])
+  }, [post, toggle])
 
 
   const handleChange = (e) => {
@@ -69,7 +71,8 @@ const Comments = ({ post }) => {
     const response = await API.newComment(comment);
     if (response?.isSuccess) {
       setComment(initialValues);
-    }
+    };
+    setToggle(prevState => !prevState);   //true hoga to false ho jayega aur agr false hoga to true ho jayega
   }
 
   return (
@@ -86,7 +89,7 @@ const Comments = ({ post }) => {
       <Box>
         {
           comments && comments.length > 0 && comments.map(comment => (
-            <Comment comment={comment} />
+            <Comment comment={comment} setToggle={setToggle} />
           ))
         }
       </Box>

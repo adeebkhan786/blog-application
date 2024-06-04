@@ -1,6 +1,8 @@
 
 
-
+// background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg) center/55% repeat-x #000;    //original
+// https://cdn.dribbble.com/users/6087864/screenshots/14640847/adeeb_al_4x.jpg
+// https://cdn.dribbble.com/users/6087864/screenshots/14640847/adeeb_al_4x.jpg
 import { Box, Typography, styled } from '@mui/material';
 const Image = styled(Box)`
   background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg) center/55% repeat-x #000;
@@ -20,16 +22,15 @@ const Heading = styled(Typography)`
 
 const SubHeading = styled(Typography)`
   font-sixe:20px;
-  background:#FFFFFF;
-
+  background:#2596be;   //background:#FFFFFF;
   `
-
 
 const Banner = () => {
   return (
     <Image>
       <Heading>BLOG</Heading>
-      <SubHeading>Code for Interview</SubHeading>
+      {/* <SubHeading>Code for Interview</SubHeading> */}
+      <SubHeading>Blog By Adeeb Khan</SubHeading>
     </Image>
   )
 }

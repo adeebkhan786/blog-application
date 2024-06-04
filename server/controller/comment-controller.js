@@ -1,3 +1,4 @@
+import { request } from "express";
 import Comment from "../model/comment.js"
 
 
@@ -20,8 +21,19 @@ export const getComments = async (request, response) => {
   try {
     const comments = await Comment.find({ postId: request?.params?.id });
     // return response.status(200).json({ msg: 'Comments has been fetched', comments });
-    return response.status(200).json({ comments });
+    return response.status(200).json(comments);
 
+  } catch (error) {
+    return response.status(500).json({ msg: error.message })
+  }
+}
+
+
+export const deleteComment = async (request, response) => {
+  try {
+    const comment = await Comment.findById(request?.params?.id);
+    await comment.deleteOne();
+    return response.status(200).json({ msg: 'Comment has been deleted successfully' })
   } catch (error) {
     return response.status(500).json({ msg: error.message })
   }

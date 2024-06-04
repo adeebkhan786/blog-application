@@ -67,8 +67,10 @@ export const forgottenPassword = async (request, response) => {
     password = password + '' + randomNumber
     console.log(password);
     const sentmailForForgottenPassword = await sendEmail(username, password, 'Password of Blog Application', veriyUser);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const updatedPassword = await User.findOneAndUpdate({ username: username }, { $set: { password: hashedPassword } });
     console.log(sentmailForForgottenPassword);
-    return response.status(200).json({ msg: 'Email has been sent for new password', password })
+    return response.status(200).json({ msg: 'Email has been sent for new password', updatedPassword })
   } catch (error) {
     return response.status(500).json(error.message);
   }
